@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced Weather App</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script defer type="module" src="./scripts/constants.js"></script>
+    <script defer type="module" src="./scripts/showElements.js"></script>
+    <script defer type="module" src="./scripts/index.js"></script>
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" /> -->
+  </head>
+  <body>
+    <div class="weather-app">
+      <header class="app-header">
+        <h1>Weather Dashboard</h1>
+      </header>
+      <form id="city-form">
+        <input id="city" type="text" />
+        <button>🔎</button>
+        <!-- <button class="material-symbols-outlined">
+            search
+        </button> -->
+      </form>
+      <section class="weather-info hidden">
+        <div class="card location">
+          <h2>Location</h2>
+          <p>
+            <strong>City:</strong>
+            <span id="city-name"></span>
+          </p>
+          <p>
+            <strong>Longitude:</strong>
+            <span id="longitude"></span>
+            <br />
+            <strong>Latitude:</strong>
+            <span id="latitude"></span>
+          </p>
+        </div>
+        <div class="card overview">
+          <img id="weather-icon" src="" alt="Weather Icon" />
+          <div>
+            <h2><span id="weather-main"></span></h2>
+            <p><span id="weather-description"></span></p>
+          </div>
+          <p><strong>Temperature:</strong> <span id="temp-current"></span>°C</p>
+          <p>
+            <strong>Feels like:</strong>
+            <span id="temp-current-feelings"></span>°C
+          </p>
+          <button onclick="openModal()" class="modern-button">
+            More Details
+          </button>
+        </div>
+        <div class="card additional">
+          <h2>Wind & Humidity</h2>
+          <p>
+            <strong>Wind:</strong> <span id="wind-speed"></span> m/s,
+            <span id="wind-direction"></span>°
+          </p>
+          <p><strong>Humidity:</strong> <span id="humidity"></span>%</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Details</h2>
+        <p><strong>Pressure:</strong> <span id="pressure"></span> hPa</p>
+        <p><strong>Visibility:</strong> <span id="visibility"></span> meters</p>
+        <p>
+          <strong>Maximum Temperature:</strong> <span id="tempMax"></span>°C
+        </p>
+        <p>
+          <strong>Minimum Temperature:</strong> <span id="tempMin"></span>°C
+        </p>
+        <p><strong>Sunrise:</strong> <span id="sunrise"></span></p>
+        <p><strong>Sunset:</strong> <span id="sunset"></span></p>
+      </div>
+    </div>
+    <script>
+      function openModal() {
+        document.getElementById("modal").style.display = "block";
+      }
+
+      function closeModal() {
+        document.getElementById("modal").style.display = "none";
+      }
+    </script>
+  </body>
+</html>
